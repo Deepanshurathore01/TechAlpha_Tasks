@@ -1,29 +1,36 @@
-// Write a Program to Count the Number of Vowels
+// Write a Program to Remove Spaces From a String
 
 #include<iostream>
 #include<string>
 using namespace std;
 
-int countVowels(string &s)
+void removeSpace(string &s)
 {
-  int size =s.length();
-  int count =0;
-  for(int i=0;i<size;i++)
-  {
-    char c =s[i];
-    if(c == 'a' || c == 'e' || c == 'i' || c== 'o' || c =='u' || c=='A' || c == 'E'||c == 'I'|| c == 'O' || c == 'U')
-    {
-      count++;
-    }
-  }
-  return count;
+   int size = s.length();
+  
+
+  // index for the modified string
+   int j = 0;
+
+
+   for(int i = 0; i < size; i++)
+   {
+      if(s[i] != ' ')
+      {
+         
+          // overwrite the string with non-space characters
+          s[j++] = s[i]; 
+      }
+   }
+   // resize the string to remove the extra characters
+   s.resize(j); 
 }
 
 int main()
 {
   string s = "Tech Alpha provides Internship";
-  int ans = countVowels(s);
-  cout<<"Number of vowels in the string is :"<<ans;
+  removeSpace(s);
+  cout << "Output : " << s << endl;
 
   return 0;
 }
